@@ -76,7 +76,7 @@ const Home = (props) => {
                     Helper.showNotification(typeof response.data.data.result !== undefined ? response.data.data.result : 'Server error', 'error');
                 } else if (response.data.data.status === 'success') {
                     if (!response.data.data.result.length) {
-                        Helper.showNotification('No Email can be scrapped', 'error');
+                        Helper.showNotification('No email can be scrapped', 'error');
                     } else {
                         Helper.showNotification('Scrap is successful', 'success');
                     }
