@@ -11,7 +11,8 @@ var cors = require('cors');
 // var indexMiddleware = require('./middlewares/index');
 
 //routers
-var statusRouter = require('./routes/status');
+var statusRouter = require('./routes/Status');
+var apiRouter = require('./routes/Api');
 var indexRouter = require('./routes/index');
 
 var app = express();
@@ -33,6 +34,7 @@ if (process.env.NODE_ENV === 'production') {
 
 //routes
 app.use('/status', cors(), statusRouter);
+app.use('/api', apiRouter);
 app.use('*', indexRouter);
 
 // catch 404 and forward to error handler

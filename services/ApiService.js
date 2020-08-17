@@ -1,5 +1,5 @@
 const utils = require('../utils/index');
-
+const nodeEmailExtractor = require('node-email-extractor').default;
 
 class ApiService {
     
@@ -7,18 +7,28 @@ class ApiService {
         //
     }
     
-    login = async (username, password) => {
-        if (typeof username === 'undefined') {
-            throw Error("Username is required"); 
-        } else if (typeof password === 'undefined') {
-            throw Error("Password is required");
+    scrap = async (site) => {
+        if (typeof site === 'undefined') {
+            throw Error("Site name is required"); 
         }
 
-        if (username === process.env.SITE_USERNAME && password === process.env.SITE_PASSWORD) {
-            return utils.randomString(32);
-        } else {
-            throw Error("Invalid Credentials");
+        try {
+            const result = await nodeEmailExtractor.url(site);
+            if (typeof result.emails !== 'undefined') {
+               return {
+                    status: 'success',
+                    result: result.emails
+                };
+            } else {
+                return {
+                    status: 'error',
+                    result: 'Invalid request while parsing'
+                };
+            }
+        } catch (error) {
+            throw Error(error);
         }
+        
     };
 }
 
