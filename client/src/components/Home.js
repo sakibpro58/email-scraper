@@ -88,11 +88,13 @@ const Home = (props) => {
                     response.data.result.forEach((singleSite, index) => {
                         if (singleSite.emails.length) {
                             singleSite.emails.forEach((email, index) => {
-                                let resultObj = {
-                                    email    : email,
-                                    site: singleSite.site,
-                                };
-                                resultArray.push(resultObj);
+                                if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
+                                    let resultObj = {
+                                        email    : email,
+                                        site: singleSite.site,
+                                    };
+                                    resultArray.push(resultObj);
+                                }
                             });
                         }
                     });
