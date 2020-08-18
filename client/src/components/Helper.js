@@ -16,10 +16,22 @@ const showNotification = (message = 'Something went wrong', type = 'error') => {
     });
 };
 
+const textEllipsis = (str, length, ending = '...') => {
+    if (length == null) {
+      length = 100;
+    }
+    if (str.length > length) {
+      return str.substring(0, length - ending.length) + ending;
+    } else {
+      return str;
+    }
+};
+
 
 const Helper = {
     serverURL: window.location.origin,
-    showNotification: showNotification
+    showNotification: showNotification,
+    textEllipsis: textEllipsis
 }
 
 export default Helper;
