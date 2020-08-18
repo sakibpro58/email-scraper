@@ -26,14 +26,14 @@ const OptionPopup = (props) => {
                                             <label className="form-check-label">
                                                 <input type="checkbox" className="form-check-input" checked={props.options.acceptRootUrlOnly}  onClick={(e) => { 
                                                     props.setOptions({...props.options, acceptRootUrlOnly: !props.options.acceptRootUrlOnly }) 
-                                                }} /> Accept Root Url Only <i className="input-helper"></i>
+                                                }} /> Process Root Url Only <i className="input-helper"></i>
                                             </label>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div className="card mt-2">
+                        {/* <div className="card mt-2">
                             <div className="mx-0 row">
                                 <div className="col-md-12">
                                     <div className="form-group" style={{ marginBottom: '1rem' }}>
@@ -50,7 +50,7 @@ const OptionPopup = (props) => {
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> */}
                     </div>
                 </Modal.Body>
             </Modal>
