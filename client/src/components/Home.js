@@ -175,7 +175,7 @@ const Home = (props) => {
                                     <div className="card">
                                     <div className="card-body text-center">
                                         <div className="forms-sample">
-                                            <label>Enter one domain/URL per line Below And Press Start Scrapping</label>
+                                            <label className="text-muted">Enter one domain/URL per line Below And Press Start Scrapping</label>
                                             <div className="form-group">
                                                 <textarea id="site" name="site" onChange={(e) => { setState({ ...state, site: e.target.value }) }} value={state.site} className="form-control" placeholder='example.com &#10;example.com &#10;example.com' rows="6"></textarea>
                                             </div>
