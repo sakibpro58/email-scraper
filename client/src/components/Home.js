@@ -1,19 +1,19 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState } from 'react';
 import Navbar from './layouts/Navbar';
 import Sidebar from './layouts/Sidebar';
 import Helper from './Helper';
 import Axios from 'axios';
 import {CopyToClipboard} from 'react-copy-to-clipboard';
 import { If } from 'react-if';
-import {
+/* import {
   PieChart, Pie, Legend, Tooltip, Cell,
-} from 'recharts';
+} from 'recharts'; */
 import OptionPopup from './OptionPopup';
 import Loading from './Loading';
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import BootStrapTooltip from 'react-bootstrap/Tooltip';
 
-const COLORS = ['#0088FE', '#00C49F', '#fe7c96'];
+/* const COLORS = ['#0088FE', '#00C49F', '#fe7c96'];
 const RADIAN = Math.PI / 180;
 const renderCustomizedLabel = ({
   cx, cy, midAngle, innerRadius, outerRadius, percent, index,
@@ -27,7 +27,7 @@ const renderCustomizedLabel = ({
       {`${(percent * 100).toFixed(0)}%`}
     </text>
   );
-};
+}; */
 
 const Home = (props) => {
     const [state, setState] = useState({
@@ -39,14 +39,14 @@ const Home = (props) => {
 
     const [results, setResults] = useState([]);
     const [options, setOptions] = useState({
-        acceptRootUrlOnly: false,
-        searchStrength: 'deep'
+        acceptRootUrlOnly: localStorage.getItem("acceptRootUrlOnly") === 'true' ? true : false,
+        searchStrength: localStorage.getItem("searchStrength") ? localStorage.getItem("searchStrength") : 'deep'
     });
-    const [chartData, setChartData] = useState([
+    /* const [chartData, setChartData] = useState([
         { name: 'Total Email', value: 100 },
         { name: 'Copied', value: 50 },
         { name: 'Not Copied', value: 50 }
-    ]);
+    ]); */
 
     /* useEffect(() => {
         if (emails.length) {
@@ -88,6 +88,7 @@ const Home = (props) => {
                     response.data.result.forEach((singleSite, index) => {
                         if (singleSite.emails.length) {
                             singleSite.emails.forEach((email, index) => {
+                                //eslint-disable-next-line
                                 if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
                                     let resultObj = {
                                         email    : email,
@@ -127,7 +128,6 @@ const Home = (props) => {
 
     const copyAllOnClickHandler = () => {
         let table = document.querySelector('#scrapped-email-table');
-        let button = document.querySelector('#copy-all-button');
         
         selectNode(table);
         document.execCommand('copy')

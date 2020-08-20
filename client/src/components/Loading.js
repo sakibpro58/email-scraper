@@ -1,21 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import Modal from 'react-bootstrap/Modal';
 import loadingImage from '../assets/img/loader.gif';
 
 const Loading = (props) => {
-    const [state, setState] = useState({
-
-    });
-
-    useEffect(() => {
-
-    }, []);
-
     return (
         <React.Fragment>
             <Modal show={true} centered>
                 <Modal.Body className="mx-auto">
-                    <img src={loadingImage} />
+                    <img src={loadingImage} alt="Loading"/>
                 </Modal.Body>
             </Modal>
         </React.Fragment>

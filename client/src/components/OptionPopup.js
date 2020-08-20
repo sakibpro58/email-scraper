@@ -1,11 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import Modal from 'react-bootstrap/Modal';
 
 const OptionPopup = (props) => {
-    const [state, setState] = useState({
-
-    });
-
     useEffect(() => {
 
     }, []);
@@ -24,8 +20,10 @@ const OptionPopup = (props) => {
                                     <div className="form-group" style={{ marginBottom: '1rem' }}>
                                         <div className="form-check">
                                             <label className="form-check-label">
-                                                <input type="checkbox" className="form-check-input" checked={props.options.acceptRootUrlOnly}  onClick={(e) => { 
-                                                    props.setOptions({...props.options, acceptRootUrlOnly: !props.options.acceptRootUrlOnly }) 
+                                                <input type="checkbox" className="form-check-input" checked={props.options.acceptRootUrlOnly}  onClick={(e) => {
+                                                    let value = !props.options.acceptRootUrlOnly;
+                                                    props.setOptions({...props.options, acceptRootUrlOnly:  value});
+                                                    localStorage.setItem("acceptRootUrlOnly", value);
                                                 }} /> Process Root Url Only <i className="input-helper"></i>
                                             </label>
                                         </div>
@@ -39,12 +37,18 @@ const OptionPopup = (props) => {
                                     <div className="form-group" style={{ marginBottom: '1rem' }}>
                                         <div className="form-check">
                                             <label class="form-check-label">
-                                                <input type="radio" class="form-check-input" checked={props.options.searchStrength === 'deep'} name="searchStrength" value="deep" onClick={(e) => { props.setOptions({...props.options, searchStrength: e.target.value }) }}/> Deep Search <i class="input-helper"></i>
+                                                <input type="radio" class="form-check-input" checked={props.options.searchStrength === 'deep'} name="searchStrength" value="deep" onClick={(e) => { 
+                                                    props.setOptions({...props.options, searchStrength: e.target.value });
+                                                    localStorage.setItem("searchStrength", "deep");
+                                                }}/> Deep Search <i class="input-helper"></i>
                                             </label>
                                         </div>
                                         <div className="form-check">
                                             <label class="form-check-label">
-                                                <input type="radio" class="form-check-input" checked={props.options.searchStrength === 'quick'} name="searchStrength" value="quick" onClick={(e) => { props.setOptions({...props.options, searchStrength: e.target.value }) }}/> Quick Search <i class="input-helper"></i>
+                                                <input type="radio" class="form-check-input" checked={props.options.searchStrength === 'quick'} name="searchStrength" value="quick" onClick={(e) => { 
+                                                    props.setOptions({...props.options, searchStrength: e.target.value });
+                                                    localStorage.setItem("searchStrength", "quick");
+                                                }}/> Quick Search <i class="input-helper"></i>
                                             </label>
                                         </div>
                                     </div>

@@ -60,11 +60,11 @@ class ApiService {
                                         .then( result => {
                                             var emails = [];
                                             if (typeof result.emails !== 'undefined') {
-                                                emails = result.emails;
+                                                emails = result.emails.length ? [result.emails[0]] : [];
                                             }
                                             var myObject = {
                                                 site: site,
-                                                emails: emails.length ? emails[0] : [],
+                                                emails: emails,
                                                 totalEmail: emails.length
                                             }
                                             resolve(myObject);
