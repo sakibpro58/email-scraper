@@ -146,7 +146,7 @@ const Home = (props) => {
         return results.map((email, index) => {
             return (
                 <tr key={index}>
-                    <td> {index} </td>
+                    <td> {index+1} </td>
                     <td><code>{Helper.textEllipsis(email.email, 50)}</code> </td>
                     <td> {Helper.textEllipsis(email.site, 50)} </td>
                     <td>

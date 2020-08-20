@@ -33,7 +33,7 @@ const OptionPopup = (props) => {
                                 </div>
                             </div>
                         </div>
-                        {/* <div className="card mt-2">
+                        <div className="card mt-2">
                             <div className="mx-0 row">
                                 <div className="col-md-12">
                                     <div className="form-group" style={{ marginBottom: '1rem' }}>
@@ -50,7 +50,7 @@ const OptionPopup = (props) => {
                                     </div>
                                 </div>
                             </div>
-                        </div> */}
+                        </div>
                     </div>
                 </Modal.Body>
             </Modal>

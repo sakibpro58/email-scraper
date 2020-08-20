@@ -54,8 +54,36 @@ class ApiService {
                                             totalEmail: 0
                                         });
                                     }
-                                } else {
-                                    
+                                } else if (searchStrength === 'quick') {
+                                    try {
+                                        nodeEmailExtractor.url(site)
+                                        .then( result => {
+                                            var emails = [];
+                                            if (typeof result.emails !== 'undefined') {
+                                                emails = result.emails;
+                                            }
+                                            var myObject = {
+                                                site: site,
+                                                emails: emails.length ? emails[0] : [],
+                                                totalEmail: emails.length
+                                            }
+                                            resolve(myObject);
+                                        }).catch(error => {
+                                            console.log(error);
+                                            resolve({
+                                                site: site,
+                                                emails: [],
+                                                totalEmail: 0
+                                            });
+                                        });
+                                    } catch (error) {
+                                        console.log(error);
+                                        resolve({
+                                            site: site,
+                                            emails: [],
+                                            totalEmail: 0
+                                        });
+                                    }
                                 }
                             } catch (error) {
                                 console.log(error);
