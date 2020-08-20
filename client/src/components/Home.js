@@ -92,7 +92,7 @@ const Home = (props) => {
                                 if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
                                     let resultObj = {
                                         email    : email,
-                                        site: singleSite.site,
+                                        site: singleSite.site.replace('www.', '').replace('https://', '').replace('http://', '')
                                     };
                                     resultArray.push(resultObj);
                                 }
