@@ -12,6 +12,7 @@ import OptionPopup from './OptionPopup';
 import Loading from './Loading';
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import BootStrapTooltip from 'react-bootstrap/Tooltip';
+import loadingImage from '../assets/img/loader.gif';
 
 /* const COLORS = ['#0088FE', '#00C49F', '#fe7c96'];
 const RADIAN = Math.PI / 180;
