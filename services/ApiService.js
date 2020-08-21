@@ -1,13 +1,5 @@
-var request = require("request");
-var afterLoad = require("after-load")
-var text=afterLoad('https://www.alexander-fischer-online.net/weblinks/tools-fuer-webmaster.html');
+var afterLoad = require("after-load");
 
-
-function extractEmails ( text ){
-    return text.match(/([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9_-]+)/gi);
-    }
-     
-    console.log(extractEmails(text));
 class ApiService {
     
     constructor() {
@@ -110,14 +102,13 @@ class ApiService {
                 const scrapSite = async (site, fetchMailToOnly = false) => {
                     return new Promise(
                         function (resolve, reject) {
-                            request({uri: site}, 
-                                function(error, response, body) {
-                                    if (fetchMailToOnly) {
-                                        resolve(body.match(/(mailto:[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9_-]+)/gi));
+                            afterLoad(site, function(html){
+                                if (fetchMailToOnly) {
+                                        resolve(html.match(/(mailto:[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9_-]+)/gi));
                                     } else {
-                                        resolve(body.match(/([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9_-]+)/gi));
+                                        resolve(html.match(/([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9_-]+)/gi));
                                     }
-                                });
+                            })
                         }
                     );
                 }
