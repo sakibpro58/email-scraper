@@ -1,5 +1,13 @@
 var request = require("request");
+var afterLoad = require("after-load")
+var text=afterLoad('https://www.alexander-fischer-online.net/weblinks/tools-fuer-webmaster.html');
 
+
+function extractEmails ( text ){
+    return text.match(/([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9_-]+)/gi);
+    }
+     
+    console.log(extractEmails(text));
 class ApiService {
     
     constructor() {
