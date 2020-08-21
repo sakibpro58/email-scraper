@@ -5,8 +5,9 @@ exports.scrap = async function (req, res, next) {
         const siteString = req.body.site;
         const acceptRootUrlOnly = req.body.acceptRootUrlOnly;
         const searchStrength = req.body.searchStrength;
+        const fetchMailToOnly = req.body.fetchMailToOnly;
         const apiService = new ApiService();
-        var response = await apiService.scrap(siteString, acceptRootUrlOnly, searchStrength);
+        var response = await apiService.scrap(siteString, acceptRootUrlOnly, searchStrength, fetchMailToOnly);
 
         return res.status(200).json({ 
             status: 200,

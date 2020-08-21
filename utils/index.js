@@ -1,11 +1,13 @@
-const randomString = (length) => {
-    var result           = '';
-    var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-    var charactersLength = characters.length;
-    for ( var i = 0; i < length; i++ ) {
-        result += characters.charAt(Math.floor(Math.random() * charactersLength));
+const extractEmails = (str, mailToOnly = false) => {
+    if (mailToOnly) {
+        return text.match(/(mailto:[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9_-]+)/gi);
+    } else {
+        return text.match(/([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9_-]+)/gi);
     }
-    return result;
+};
+
+const Utils = {
+    extractEmails: extractEmails
 }
 
-module.exports.randomString = randomString;
+module.exports.Utils = Utils;

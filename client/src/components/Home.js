@@ -40,7 +40,8 @@ const Home = (props) => {
     const [results, setResults] = useState([]);
     const [options, setOptions] = useState({
         acceptRootUrlOnly: localStorage.getItem("acceptRootUrlOnly") === 'true' ? true : false,
-        searchStrength: localStorage.getItem("searchStrength") ? localStorage.getItem("searchStrength") : 'deep'
+        searchStrength: localStorage.getItem("searchStrength") ? localStorage.getItem("searchStrength") : 'deep',
+        fetchMailToOnly: localStorage.getItem("fetchMailToOnly") === 'true' ? true : false
     });
     /* const [chartData, setChartData] = useState([
         { name: 'Total Email', value: 100 },
@@ -75,7 +76,8 @@ const Home = (props) => {
                 const response = await Axios.post('/api/scrap', {
                     site: state.site,
                     acceptRootUrlOnly: options.acceptRootUrlOnly,
-                    searchStrength: options.searchStrength
+                    searchStrength: options.searchStrength,
+                    fetchMailToOnly: options.fetchMailToOnly
                 });
                 setState({
                     ...state,
@@ -88,14 +90,11 @@ const Home = (props) => {
                     response.data.result.forEach((singleSite, index) => {
                         if (singleSite.emails.length) {
                             singleSite.emails.forEach((email, index) => {
-                                //eslint-disable-next-line
-                                if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
-                                    let resultObj = {
-                                        email    : email,
-                                        site: singleSite.site.replace('www.', '').replace('https://', '').replace('http://', '')
-                                    };
-                                    resultArray.push(resultObj);
-                                }
+                                let resultObj = {
+                                    email    : email.replace('mailto:', ''),
+                                    site: singleSite.site.replace('www.', '').replace('https://', '').replace('http://', '').replace(/\/$/, '')
+                                };
+                                resultArray.push(resultObj);
                             });
                         }
                     });

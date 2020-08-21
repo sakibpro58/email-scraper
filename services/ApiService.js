@@ -1,5 +1,4 @@
-const utils = require('../utils/index');
-const nodeEmailExtractor = require('node-email-extractor').default;
+var request = require("request");
 
 class ApiService {
     
@@ -7,10 +6,10 @@ class ApiService {
         //
     }
     
-    scrap = (siteString, acceptRootUrlOnly, searchStrength) => {
+    scrap = (siteString, acceptRootUrlOnly, searchStrength, fetchMailToOnly) => {
         return new Promise(
             function (resolve, reject) {
-                const processSite = (site, acceptRootUrlOnly, searchStrength) => {
+                const processSite = (site, acceptRootUrlOnly, searchStrength, fetchMailToOnly) => {
                     return new Promise(
                         function (resolve, reject) {
                             try {
@@ -26,11 +25,12 @@ class ApiService {
                                 //searchStrength process
                                 if (searchStrength === 'deep') {
                                     try {
-                                        nodeEmailExtractor.url(site)
-                                        .then( result => {
-                                            var emails = [];
-                                            if (typeof result.emails !== 'undefined') {
-                                                emails = result.emails;
+                                        scrapSite(site, fetchMailToOnly)
+                                        .then(emails => {
+                                            if (emails === null) {
+                                                emails = [];
+                                            } else {
+                                                emails = [...new Set(emails)]; //unique array
                                             }
                                             var myObject = {
                                                 site: site,
@@ -56,11 +56,12 @@ class ApiService {
                                     }
                                 } else if (searchStrength === 'quick') {
                                     try {
-                                        nodeEmailExtractor.url(site)
-                                        .then( result => {
-                                            var emails = [];
-                                            if (typeof result.emails !== 'undefined') {
-                                                emails = result.emails.length ? [result.emails[0]] : [];
+                                        scrapSite(site, fetchMailToOnly)
+                                        .then(emails => {
+                                            if (emails === null) {
+                                                emails = [];
+                                            } else {
+                                                emails = emails.length ? [emails[0]] : [];
                                             }
                                             var myObject = {
                                                 site: site,
@@ -94,9 +95,24 @@ class ApiService {
                     );
                 };
 
-                const processSiteArray = async (siteArray, acceptRootUrlOnly, searchStrength) => {
-                    return Promise.all(siteArray.map(site => processSite(site, acceptRootUrlOnly, searchStrength)))
+                const processSiteArray = async (siteArray, acceptRootUrlOnly, searchStrength, fetchMailToOnly) => {
+                    return Promise.all(siteArray.map(site => processSite(site, acceptRootUrlOnly, searchStrength, fetchMailToOnly)))
                 };
+
+                const scrapSite = async (site, fetchMailToOnly = false) => {
+                    return new Promise(
+                        function (resolve, reject) {
+                            request({uri: site}, 
+                                function(error, response, body) {
+                                    if (fetchMailToOnly) {
+                                        resolve(body.match(/(mailto:[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9_-]+)/gi));
+                                    } else {
+                                        resolve(body.match(/([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9_-]+)/gi));
+                                    }
+                                });
+                        }
+                    );
+                }
 
                if (typeof siteString === 'undefined') {
                     throw Error("Site name is required"); 
@@ -110,17 +126,12 @@ class ApiService {
 
                 let siteArray = siteString.split("\n").filter(site => site !== '');
                 
-                processSiteArray(siteArray, acceptRootUrlOnly, searchStrength).then(result => {
+                processSiteArray(siteArray, acceptRootUrlOnly, searchStrength, fetchMailToOnly).then(result => {
                     resolve(result)
                 });
             }
         );
-        
-        
-        
     };
-
-    
 }
 
 module.exports = ApiService;

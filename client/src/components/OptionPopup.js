@@ -24,7 +24,24 @@ const OptionPopup = (props) => {
                                                     let value = !props.options.acceptRootUrlOnly;
                                                     props.setOptions({...props.options, acceptRootUrlOnly:  value});
                                                     localStorage.setItem("acceptRootUrlOnly", value);
-                                                }} /> Process Root Url Only <i className="input-helper"></i>
+                                                }} /> Process Root Url Only <i className="input-helper"></i> <small className="text-muted">({props.options.acceptRootUrlOnly ? 'www.example.com' : 'www.example.com/xyz'})</small>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="card mt-2">
+                            <div className="mx-0 row">
+                                <div className="col-md-12">
+                                    <div className="form-group" style={{ marginBottom: '1rem' }}>
+                                        <div className="form-check">
+                                            <label className="form-check-label">
+                                                <input type="checkbox" className="form-check-input" checked={props.options.fetchMailToOnly}  onClick={(e) => {
+                                                    let value = !props.options.fetchMailToOnly;
+                                                    props.setOptions({...props.options, fetchMailToOnly:  value});
+                                                    localStorage.setItem("fetchMailToOnly", value);
+                                                }} /> Scrap mailto: Only <i className="input-helper"></i> <small className="text-muted">({props.options.fetchMailToOnly ? 'mailto:xyz@example.com' : 'xyz@example.com'})</small>
                                             </label>
                                         </div>
                                     </div>
