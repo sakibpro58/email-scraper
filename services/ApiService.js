@@ -104,10 +104,10 @@ class ApiService {
                         function (resolve, reject) {
                             afterLoad(site, function(html){
                                 if (fetchMailToOnly) {
-                                        resolve(html.match(/(mailto:[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9_-]+)/gi));
-                                    } else {
-                                        resolve(html.match(/([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9_-]+)/gi));
-                                    }
+                                    resolve(html.match(/(mailto:[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9_-]+)/gi));
+                                } else {
+                                    resolve(html.match(/([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9_-]+)/gi));
+                                }
                             })
                         }
                     );
