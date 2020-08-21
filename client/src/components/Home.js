@@ -256,6 +256,7 @@ const Home = (props) => {
                     </div>
                 </div>
             </div>
+            <img className="d-none" src={loadingImage} alt='loading'/>
             <If condition={state.openOptionPopup}>
                 <OptionPopup
                     handleClose={toggleOptionPopup}
