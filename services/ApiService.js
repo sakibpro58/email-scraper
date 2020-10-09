@@ -6,10 +6,10 @@ class ApiService {
         //
     }
     
-    scrap = (siteString, prcessRootUrlOnly, searchStrength) => {
+    scrap = (siteString, processRootUrlOnly, searchStrength) => {
         return new Promise(
             function (resolve, reject) {
-                const processSite = (site, prcessRootUrlOnly, searchStrength) => {
+                const processSite = (site, processRootUrlOnly, searchStrength) => {
                     return new Promise(
                         function (resolve, reject) {
                             try {
@@ -18,8 +18,8 @@ class ApiService {
                                     site = 'http://'+site;
                                 }
 
-                                //prcessRootUrlOnly 
-                                if (prcessRootUrlOnly) {
+                                //processRootUrlOnly 
+                                if (processRootUrlOnly) {
                                     site = (new URL(site)).origin;
                                 }
                                 //searchStrength process
@@ -95,8 +95,8 @@ class ApiService {
                     );
                 };
 
-                const processSiteArray = async (siteArray, prcessRootUrlOnly, searchStrength) => {
-                    return Promise.all(siteArray.map(site => processSite(site, prcessRootUrlOnly, searchStrength)))
+                const processSiteArray = async (siteArray, processRootUrlOnly, searchStrength) => {
+                    return Promise.all(siteArray.map(site => processSite(site, processRootUrlOnly, searchStrength)))
                 };
 
                 const scrapSite = async (site) => {
@@ -104,7 +104,11 @@ class ApiService {
                         function (resolve, reject) {
                             email.url(site)
                             .then(result => {
-                                resolve(result.emails);
+                                if (result && typeof result.emails !== 'undefined' && result.emails !== null) {
+                                    resolve(result.emails);
+                                } else {
+                                    resolve([]);
+                                }
                             })
                             .catch(err => {
                                 console.log(err);
@@ -116,16 +120,10 @@ class ApiService {
                if (typeof siteString === 'undefined') {
                     throw Error("Site name is required"); 
                 }
-                if (typeof prcessRootUrlOnly === 'undefined') {
-                    const prcessRootUrlOnly = false;
-                }
-                if (typeof searchStrength === 'undefined') {
-                    const searchStrength = 'deep';
-                }
 
                 let siteArray = siteString.split("\n").filter(site => site !== '');
                 
-                processSiteArray(siteArray, prcessRootUrlOnly, searchStrength).then(result => {
+                processSiteArray(siteArray, processRootUrlOnly, searchStrength).then(result => {
                     resolve(result)
                 });
             }

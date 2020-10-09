@@ -19,7 +19,7 @@ const Home = (props) => {
 
     const [results, setResults] = useState([]);
     const [options, setOptions] = useState({
-        prcessRootUrlOnly: localStorage.getItem("prcessRootUrlOnly") === 'true' ? true : false,
+        processRootUrlOnly: localStorage.getItem("processRootUrlOnly") === 'true' ? true : false,
         searchStrength: localStorage.getItem("searchStrength") ? localStorage.getItem("searchStrength") : 'deep',
     });
 
@@ -33,7 +33,7 @@ const Home = (props) => {
             try {
                 const response = await Axios.post('/api/scrap', {
                     site: site,
-                    prcessRootUrlOnly: options.prcessRootUrlOnly,
+                    processRootUrlOnly: options.processRootUrlOnly,
                     searchStrength: options.searchStrength,
                 });
                 setIsLoading(false);
@@ -104,8 +104,8 @@ const Home = (props) => {
                 <React.Fragment key={index}>
                     <tr>
                         <td> {index+1} </td>
-                        <td><code>{Helper.textEllipsis(result.email, 50)}</code> </td>
-                        <td> {Helper.textEllipsis(result.site, 50)} </td>
+                        <td><code>{Helper.textEllipsis(result.email, 100)}</code> </td>
+                        <td> {Helper.textEllipsis(result.site, 100)} </td>
                         <td>
                             <CopyToClipboard 
                                 text={result.email}
