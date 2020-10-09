@@ -1,8 +1,8 @@
 <h1 align="center">Scrap Me</h1>
 <p align="center"><a href="https://scrapme.glitch.me">https://scrapme.glitch.me</a></p>
 <p align="center">
-    <a href="https://nodejs.org"><img src="https://img.shields.io/badge/Node-12.18.4-success" alt="Node 12.18.4"></a>
-    <a href="https://reactjs.org/"><img src="https://img.shields.io/badge/React-16.13.1-blue" alt="React 16.13.1"></a>
+    <a href="https://nodejs.org"><img src="https://img.shields.io/badge/node-12.18.4-success" alt="node 12.18.4"></a>
+    <a href="https://reactjs.org/"><img src="https://img.shields.io/badge/react-16.13.1-blue" alt="react 16.13.1"></a>
     <a href="https://github.com/arifszn/scrap-me/blob/master/LICENSE"><img src="https://img.shields.io/github/license/arifszn/scrap-me"/></a>
     <a href="https://arifszn.github.io/"><img src="https://img.shields.io/badge/maintainer-arifszn-critical" alt="maintainer arifszn"></a>
 </p>
