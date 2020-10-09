@@ -18,7 +18,7 @@ const Navbar = () => {
                     <ul className="navbar-nav navbar-nav-right">
                         <li className="nav-item ">
                             {/* eslint-disable-next-line */}
-                            <a className="nav-link" href="https://github.com/arifszn/scrapme" target="_blank">
+                            <a className="nav-link" href="https://github.com/arifszn/scrap-me" target="_blank">
                                 <i className="mdi mdi-github-circle"></i>
                             </a>
                         </li>
