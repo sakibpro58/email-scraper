@@ -10,8 +10,8 @@ const Navbar = () => {
                     <Link className="navbar-brand brand-logo" to="/">
                         <h3>Scrap Me</h3>
                     </Link>
-                    <Link className="navbar-brand brand-logo-mini" to="/">
-                        <img src={process.env.PUBLIC_URL + '/assets/images/logo-mini.svg'} alt="logo" />
+                    <Link className="navbar-brand" to="/">
+                        <h3 className="px-3 my-auto">Scrap Me</h3>
                     </Link>
                 </div>
                 <div className="navbar-menu-wrapper d-flex align-items-stretch">
