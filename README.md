@@ -4,7 +4,7 @@
 <p align="center">
     <a href="https://nodejs.org"><img src="https://img.shields.io/badge/node-12.18.4-success" alt="node 12.18.4"></a>
     <a href="https://reactjs.org/"><img src="https://img.shields.io/badge/react-16.13.1-blue" alt="react 16.13.1"></a>
-    <a href="https://github.com/arifszn/scrap-me/blob/master/LICENSE"><img src="https://img.shields.io/github/license/arifszn/scrap-me"/></a>
+    <a href="https://github.com/arifszn/email-scraper/blob/master/LICENSE"><img src="https://img.shields.io/github/license/arifszn/email-scraper"/></a>
     <a href="https://arifszn.github.io/"><img src="https://img.shields.io/badge/maintainer-arifszn-critical" alt="maintainer arifszn"></a>
 </p>
 
@@ -12,22 +12,22 @@
 [https://emailscraper.glitch.me](https://emailscraper.glitch.me)
 
 ## Screenshots
-![alt text](https://raw.githubusercontent.com/arifszn/scrap-me/master/client/public/assets/images/Screenshot1.png)
+![alt text](https://raw.githubusercontent.com/arifszn/email-scraper/master/client/public/assets/images/Screenshot1.png)
 <br />
 <br />
 
 ***
-![alt text](https://raw.githubusercontent.com/arifszn/scrap-me/master/client/public/assets/images/Screenshot2.png)
+![alt text](https://raw.githubusercontent.com/arifszn/email-scraper/master/client/public/assets/images/Screenshot2.png)
 <br />
 <br />
 
 # Installation
 ```bash
 # Clone this repository
-$ git clone https://github.com/arifszn/scrap-me.git
+$ git clone https://github.com/arifszn/email-scraper.git
 
 # Go into the backend
-$ cd scrap-me
+$ cd email-scraper
 
 # Install dependencies of backend
 $ npm install
@@ -46,7 +46,7 @@ $ npm run dev
 Does not work in some modern websites.
 
 ## Support
-Show your ❤️ and support by giving a ⭐ on <a href="https://github.com/arifszn/scrap-me">Github</a>.
+Show your ❤️ and support by giving a ⭐ on <a href="https://github.com/arifszn/email-scraper">Github</a>.
 
 ## License
 <p>MIT Licensed.</p>
