@@ -9,7 +9,7 @@ const showNotification = (message = 'Something went wrong', type = 'error') => {
         position: 'topRight',
         theme: 'dark',
         pauseOnHover: true,
-        timeout: type === 'success' ? 5000 : false,
+        timeout: 5000,
         progressBarColor: type === 'success' ? '#00ffb8' : '#ffafb4',
         color: type === 'success' ? '#565c70' : '#565c70',
         messageColor: type === 'success' ? '#00ffb8' : '#ffafb4',

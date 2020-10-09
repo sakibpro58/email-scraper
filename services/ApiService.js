@@ -1,4 +1,4 @@
-var afterLoad = require("after-load");
+const email = require('node-email-extractor').default;
 
 class ApiService {
     
@@ -6,10 +6,10 @@ class ApiService {
         //
     }
     
-    scrap = (siteString, acceptRootUrlOnly, searchStrength, fetchMailToOnly) => {
+    scrap = (siteString, prcessRootUrlOnly, searchStrength) => {
         return new Promise(
             function (resolve, reject) {
-                const processSite = (site, acceptRootUrlOnly, searchStrength, fetchMailToOnly) => {
+                const processSite = (site, prcessRootUrlOnly, searchStrength) => {
                     return new Promise(
                         function (resolve, reject) {
                             try {
@@ -18,14 +18,14 @@ class ApiService {
                                     site = 'http://'+site;
                                 }
 
-                                //acceptRootUrlOnly process
-                                if (acceptRootUrlOnly) {
+                                //prcessRootUrlOnly 
+                                if (prcessRootUrlOnly) {
                                     site = (new URL(site)).origin;
                                 }
                                 //searchStrength process
                                 if (searchStrength === 'deep') {
                                     try {
-                                        scrapSite(site, fetchMailToOnly)
+                                        scrapSite(site)
                                         .then(emails => {
                                             if (emails === null) {
                                                 emails = [];
@@ -56,7 +56,7 @@ class ApiService {
                                     }
                                 } else if (searchStrength === 'quick') {
                                     try {
-                                        scrapSite(site, fetchMailToOnly)
+                                        scrapSite(site)
                                         .then(emails => {
                                             if (emails === null) {
                                                 emails = [];
@@ -95,19 +95,19 @@ class ApiService {
                     );
                 };
 
-                const processSiteArray = async (siteArray, acceptRootUrlOnly, searchStrength, fetchMailToOnly) => {
-                    return Promise.all(siteArray.map(site => processSite(site, acceptRootUrlOnly, searchStrength, fetchMailToOnly)))
+                const processSiteArray = async (siteArray, prcessRootUrlOnly, searchStrength) => {
+                    return Promise.all(siteArray.map(site => processSite(site, prcessRootUrlOnly, searchStrength)))
                 };
 
-                const scrapSite = async (site, fetchMailToOnly = false) => {
+                const scrapSite = async (site) => {
                     return new Promise(
                         function (resolve, reject) {
-                            afterLoad(site, function(html){
-                                if (fetchMailToOnly) {
-                                    resolve(html.match(/(mailto:[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9_-]+)/gi));
-                                } else {
-                                    resolve(html.match(/([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9_-]+)/gi));
-                                }
+                            email.url(site)
+                            .then(result => {
+                                resolve(result.emails);
+                            })
+                            .catch(err => {
+                                console.log(err);
                             })
                         }
                     );
@@ -116,8 +116,8 @@ class ApiService {
                if (typeof siteString === 'undefined') {
                     throw Error("Site name is required"); 
                 }
-                if (typeof acceptRootUrlOnly === 'undefined') {
-                    const acceptRootUrlOnly = false;
+                if (typeof prcessRootUrlOnly === 'undefined') {
+                    const prcessRootUrlOnly = false;
                 }
                 if (typeof searchStrength === 'undefined') {
                     const searchStrength = 'deep';
@@ -125,7 +125,7 @@ class ApiService {
 
                 let siteArray = siteString.split("\n").filter(site => site !== '');
                 
-                processSiteArray(siteArray, acceptRootUrlOnly, searchStrength, fetchMailToOnly).then(result => {
+                processSiteArray(siteArray, prcessRootUrlOnly, searchStrength).then(result => {
                     resolve(result)
                 });
             }

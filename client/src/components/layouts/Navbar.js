@@ -15,26 +15,26 @@ const Navbar = () => {
                     </Link>
                 </div>
                 <div className="navbar-menu-wrapper d-flex align-items-stretch">
-                    <button className="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
-                        <span className="mdi mdi-menu"></span>
-                    </button>
-                <ul className="navbar-nav navbar-nav-right">
-                    <li className="nav-item full-screen-link">
-                        {/* eslint-disable-next-line */}
-                        <a className="nav-link">
-                            <i className="mdi mdi-fullscreen" id="fullscreen-button"></i>
-                        </a>
-                    </li>
-                    <li className="nav-item ">
-                        {/* eslint-disable-next-line */}
-                        <a className="nav-link" href="#">
-                            <i className="mdi mdi-format-line-spacing"></i>
-                        </a>
-                    </li>
-                </ul>
-                <button className="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
-                    <span className="mdi mdi-menu"></span>
-                </button>
+                    <ul className="navbar-nav navbar-nav-right">
+                        <li className="nav-item ">
+                            {/* eslint-disable-next-line */}
+                            <a className="nav-link" href="https://github.com/arifszn/scrapme" target="_blank">
+                                <i className="mdi mdi-github-circle"></i>
+                            </a>
+                        </li>
+                        <li className="nav-item full-screen-link">
+                            {/* eslint-disable-next-line */}
+                            <a className="nav-link">
+                                <i className="mdi mdi-fullscreen" id="fullscreen-button"></i>
+                            </a>
+                        </li>
+                        <li className="nav-item ">
+                            {/* eslint-disable-next-line */}
+                            <a className="nav-link" href="#">
+                                <i className="mdi mdi-format-line-spacing"></i>
+                            </a>
+                        </li>
+                    </ul>
                 </div>
             </nav>
         </React.Fragment>

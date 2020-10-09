@@ -13311,7 +13311,7 @@ dl {
     .sidebar-icon-only .sidebar .sidebar-actions {
       display: none; }
   .sidebar-icon-only .main-panel {
-    width: calc(100% - 70px); } }
+    width: 100%; } }
 
 .rtl {
   direction: rtl;

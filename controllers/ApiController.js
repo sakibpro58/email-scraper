@@ -3,11 +3,10 @@ var ApiService = require('../services/ApiService')
 exports.scrap = async function (req, res, next) {
     try {
         const siteString = req.body.site;
-        const acceptRootUrlOnly = req.body.acceptRootUrlOnly;
+        const prcessRootUrlOnly = req.body.prcessRootUrlOnly;
         const searchStrength = req.body.searchStrength;
-        const fetchMailToOnly = req.body.fetchMailToOnly;
         const apiService = new ApiService();
-        var response = await apiService.scrap(siteString, acceptRootUrlOnly, searchStrength, fetchMailToOnly);
+        var response = await apiService.scrap(siteString, prcessRootUrlOnly, searchStrength);
 
         return res.status(200).json({ 
             status: 200,
