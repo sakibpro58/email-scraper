@@ -1,6 +1,6 @@
-<h1 align="center">Scrap Me</h1>
-<p align="center"><a href="https://scrapme.glitch.me">https://scrapme.glitch.me</a></p>
-<p align="center">An email parser made with Node and React.</p>
+<h1 align="center">Email Scraper</h1>
+<p align="center"><a href="https://emailscraper.glitch.me">https://emailscraper.glitch.me</a></p>
+<p align="center">An email scraper made with Node and React.</p>
 <p align="center">
     <a href="https://nodejs.org"><img src="https://img.shields.io/badge/node-12.18.4-success" alt="node 12.18.4"></a>
     <a href="https://reactjs.org/"><img src="https://img.shields.io/badge/react-16.13.1-blue" alt="react 16.13.1"></a>
@@ -9,7 +9,7 @@
 </p>
 
 ## Site
-[https://scrapme.glitch.me](https://scrapme.glitch.me)
+[https://emailscraper.glitch.me](https://emailscraper.glitch.me)
 
 ## Screenshots
 ![alt text](https://raw.githubusercontent.com/arifszn/scrap-me/master/client/public/assets/images/Screenshot1.png)

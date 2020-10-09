@@ -6,7 +6,7 @@ router.get('/', function(req, res, next) {
         const path = require('path');
         res.sendFile(path.join(__dirname, '..', 'client', 'build', 'index.html'));
     } else {
-        res.render('home', { title: 'Scarp Me' });
+        res.render('home', { title: 'Email Scraper' });
     }
 });
 
