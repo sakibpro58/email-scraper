@@ -16,7 +16,6 @@
 <br />
 <br />
 
-***
 ![alt text](https://raw.githubusercontent.com/arifszn/email-scraper/master/client/public/assets/images/Screenshot2.png)
 <br />
 <br />
