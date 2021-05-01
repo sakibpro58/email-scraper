@@ -32,7 +32,7 @@ const Home = (props) => {
             setIsLoading(true);
             try {
                 const response = await Axios.post('/api/scrap', {
-                    site: "https://www.google.com/search?q="+ site +"+%22%40%22";
+                    site: site,
                     processRootUrlOnly: options.processRootUrlOnly,
                     searchStrength: options.searchStrength,
                 });
