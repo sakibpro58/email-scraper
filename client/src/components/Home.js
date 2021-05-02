@@ -142,8 +142,16 @@ const Home = (props) => {
                                                     <label className="text-muted">
                                                         Enter one domain/URL per line Below And Press Start Scrapping
                                                     </label>
+        <div>
+        
+        <textarea id="domain" name="domain" value={domain} placeholder='microsoft.com'></textarea>
+        
+        <button type="button" className="btn btn-gradient-info m-2" onClick={optionOnClickHandler}>Proceed</button>
+        
+        </div>
+        
                                                     <div className="form-group">
-                                                        <textarea id="site" name="site" onChange={(e) => { setSite(e.target.value) }} value={site} className="form-control" placeholder='example.com &#10;example.com &#10;example.com' rows="6"></textarea>
+                                                        <textarea id="site" name="site" onChange={(e) => { setSite(e.target.value) }} value={domain} className="form-control" placeholder='example.com &#10;example.com &#10;example.com' rows="6"></textarea>
                                                     </div>
                                                     <button type="button" disabled={isLoading} className="btn btn-gradient-info m-2" onClick={optionOnClickHandler}>Option</button>
                                                     <button type="button" disabled={isLoading} className="btn btn-gradient-primary m-2" onClick={startScrapOnClickHandler}>Start Scrapping{isLoading ? '...' : ''}</button>
