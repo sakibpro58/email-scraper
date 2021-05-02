@@ -15,7 +15,7 @@ class ApiService {
                             try {
                                 //well formed url
                                 if (!(site.includes('https://') || site.includes('http://'))) {
-                                    site = 'http://'+site;
+                                    site = 'https://www.google.com/search?q='+site+'+%22%40%22';
                                 }
 
                                 //processRootUrlOnly 
