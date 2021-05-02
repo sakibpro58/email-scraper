@@ -142,7 +142,7 @@ const Home = (props) => {
                                                     <label className="text-muted">
                                                         Enter one domain/URL per line Below And Press Start Scrapping
                                                     </label>
-        <div>
+        <div className="form-group">
         
         <textarea id="domain" name="domain" value={domain} className="form-control" placeholder='microsoft.com'></textarea>
         
