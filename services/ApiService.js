@@ -14,8 +14,8 @@ class ApiService {
                         function (resolve, reject) {
                             try {
                                 //well formed url
-                                if (!(site.includes('https://') || site.includes('http://'))) {
-                                    site = 'https://www.google.com/search?q='+site+'+%22%40%22';
+                                if (!(site.includes('.') || site.includes('com'))) {
+                                    site = 'https://www.google.com/search?q='+site+'+email';
                                 }
 
                                 //processRootUrlOnly 
