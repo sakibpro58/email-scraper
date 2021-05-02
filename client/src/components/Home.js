@@ -144,7 +144,7 @@ const Home = (props) => {
                                                     </label>
         <div>
         
-        <textarea id="domain" name="domain" value={domain} placeholder='microsoft.com'></textarea>
+        <textarea id="domain" name="domain" value={domain} className="form-control" placeholder='microsoft.com'></textarea>
         
         <button type="button" className="btn btn-gradient-info m-2" onClick={optionOnClickHandler}>Proceed</button>
         
