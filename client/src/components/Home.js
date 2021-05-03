@@ -135,7 +135,7 @@ const Home = (props) => {
                                             <LoadingOverlay
                                             active={isLoading}
                                             spinner
-                                            text='Scrapping...'
+                                            text='Scrapping the Emails...'
                                         >
                                             <div className="card-body text-center">
                                                 <div className="forms-sample">
@@ -144,10 +144,9 @@ const Home = (props) => {
                                                     </label>
        
                                                     <div className="form-group">
-                                                        <textarea id="site" name="site" onChange={(e) => { setSite(e.target.value) }} value={site} className="form-control" placeholder='example.com &#10;example.com &#10;example.com' rows="6"></textarea>
+                                                        <textarea id="site" name="site" onChange={(e) => { setSite(e.target.value) }} value={site} className="form-control" placeholder='microsoft.com email &#10;microsoft.com "@" &#10;microsoft.com "@microsoft.com"' rows="6"></textarea>
                                                     </div>
-                                                    <button type="button" disabled={isLoading} className="btn btn-gradient-info m-2" onClick={optionOnClickHandler}>Option</button>
-                                                    <button type="button" disabled={isLoading} className="btn btn-gradient-primary m-2" onClick={startScrapOnClickHandler}>Start Scrapping{isLoading ? '...' : ''}</button>
+                                                    <button type="button" disabled={isLoading} className="btn btn-gradient-primary m-2" onClick={startScrapOnClickHandler}>Find Mr. Scraper{isLoading ? '...' : ''}</button>
                                                 </div>
                                             </div>
 
