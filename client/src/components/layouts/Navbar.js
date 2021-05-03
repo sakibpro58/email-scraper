@@ -11,17 +11,12 @@ const Navbar = () => {
                         <h3>Email scraper</h3>
                     </Link>
                     <Link className="navbar-brand" to="/">
-                        <h3 className="px-3 my-auto">Email Scraper</h3>
+                        <h3 className="px-3 my-auto">Mr. Scraper</h3>
                     </Link>
                 </div>
                 <div className="navbar-menu-wrapper d-flex align-items-stretch">
                     <ul className="navbar-nav navbar-nav-right">
-                        <li className="nav-item ">
-                            {/* eslint-disable-next-line */}
-                            <a className="nav-link" href="https://github.com/arifszn/email-scraper" target="_blank">
-                                <i className="mdi mdi-github-circle"></i>
-                            </a>
-                        </li>
+
                         <li className="nav-item full-screen-link">
                             {/* eslint-disable-next-line */}
                             <a className="nav-link">
