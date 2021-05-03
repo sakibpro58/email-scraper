@@ -132,14 +132,7 @@ const Home = (props) => {
                             <div className="row">
                                 <div className="col-md-12 grid-margin stretch-card">
                                     <div className="card">
-                                            <LoadingOverlay
-                                            active={isLoading}
-                                            spinner
-                                            text='Scrapping...'
-                                        >
-        
-        
-         <div className="card-body text-center">
+          <div className="card-body text-center">
                                                 <div className="forms-sample">
                                                     <label className="text-muted">
                                                         Enter a Domain And Press Proceed
@@ -163,8 +156,29 @@ const Home = (props) => {
             document.getElementById("site").value = inputVal;
         }
     </script>
-        
-        
+    
+    
+    
+      </React.Fragment>
+            )
+    
+    
+    
+    return (
+        <React.Fragment>
+            <div className="container-scroller">
+               <Navbar/>
+                <div className="container-fluid page-body-wrapper">
+                    <div className="main-panel">
+                        <div className="content-wrapper">
+                            <div className="row">
+                                <div className="col-md-12 grid-margin stretch-card">
+                                    <div className="card">
+                                            <LoadingOverlay
+                                            active={isLoading}
+                                            spinner
+                                            text='Scrapping...'
+                                        >
                                             <div className="card-body text-center">
                                                 <div className="forms-sample">
                                                     <label className="text-muted">
@@ -179,13 +193,13 @@ const Home = (props) => {
                                                 </div>
                                             </div>
 
-
-
-
                                         </LoadingOverlay>
                                     </div>
                                 </div>
+
+
                                 <If condition={!hideBottomPart}>
+                                    
                                 <React.Fragment>
                                 <div className="col-md-12 grid-margin stretch-card">
                                     <div className="card">
