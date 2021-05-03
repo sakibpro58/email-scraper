@@ -121,48 +121,6 @@ const Home = (props) => {
             )
         });
     }
-
-    return (
-        <React.Fragment>
-            <div className="container-scroller">
-               <Navbar/>
-                <div className="container-fluid page-body-wrapper">
-                    <div className="main-panel">
-                        <div className="content-wrapper">
-                            <div className="row">
-                                <div className="col-md-12 grid-margin stretch-card">
-                                    <div className="card">
-          <div className="card-body text-center">
-                                                <div className="forms-sample">
-                                                    <label className="text-muted">
-                                                        Enter a Domain And Press Proceed
-                                                    </label>
-       
-                                                    <div className="form-group">
-                                                        <textarea id="domain" name="domain" onChange={(e) => { setSite(e.target.value) }} value={domain} className="form-control" placeholder='microsoft.com' rows="2"></textarea>
-                                                    </div>
-
-                                                    <button type="button" disabled={isLoading} className="btn btn-gradient-info m-2" onClick={optionOnClickHandler}>Option</button>
-                                                </div>
-                                            </div>
-        
-         <script>
-        function getInputValue(){
-                                                       
-            // Selecting the input element and get its value 
-            var inputVal = document.getElementById("domain").value;
-            
-            // Displaying the value
-            document.getElementById("site").value = inputVal;
-        }
-    </script>
-    
-    
-    
-      </React.Fragment>
-            )
-    
-    
     
     return (
         <React.Fragment>
