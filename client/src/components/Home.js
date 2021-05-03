@@ -140,13 +140,13 @@ const Home = (props) => {
                                             <div className="card-body text-center">
                                                 <div className="forms-sample">
                                                     <label className="text-muted">
-                                                        Please Check the String And Press Start Scrapping
+                                                        Gimme the Domain, I will provide the Emails!
                                                     </label>
        
                                                     <div className="form-group">
                                                         <textarea id="site" name="site" onChange={(e) => { setSite(e.target.value) }} value={site} className="form-control" placeholder='microsoft.com email &#10;microsoft.com "@" &#10;microsoft.com "@microsoft.com"' rows="6"></textarea>
                                                     </div>
-                                                    <button type="button" disabled={isLoading} className="btn btn-gradient-primary m-2" onClick={startScrapOnClickHandler}>Find Mr. Scraper{isLoading ? '...' : ''}</button>
+                                                    <button type="button" disabled={isLoading} className="btn btn-gradient-primary m-2" onClick={startScrapOnClickHandler}>Proceed Mr. Scraper{isLoading ? '...' : ''}</button>
                                                 </div>
                                             </div>
 
@@ -161,7 +161,7 @@ const Home = (props) => {
                                 <div className="col-md-12 grid-margin stretch-card">
                                     <div className="card">
                                     <div className="card-body text-center">
-                                        <h4 className="card-title">Email Scrapped: {results.length}</h4>
+                                        <h4 className="card-title">Number of Email is: {results.length}</h4>
                                     </div>
                                     </div>
                                 </div>
