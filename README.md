@@ -5,7 +5,6 @@
     <a href="https://nodejs.org"><img src="https://img.shields.io/badge/node-12.18.4-success" alt="node 12.18.4"></a>
     <a href="https://reactjs.org/"><img src="https://img.shields.io/badge/react-16.13.1-blue" alt="react 16.13.1"></a>
     <a href="https://github.com/arifszn/email-scraper/blob/master/LICENSE"><img src="https://img.shields.io/github/license/arifszn/email-scraper"/></a>
-    <a href="https://arifszn.github.io/"><img src="https://img.shields.io/badge/maintainer-arifszn-critical" alt="maintainer arifszn"></a>
 </p>
 
 ## Site
@@ -45,7 +44,7 @@ $ npm run dev
 Does not work in some modern websites.
 
 ## Support
-Show your ❤️ and support by giving a ⭐ on <a href="https://github.com/arifszn/email-scraper">Github</a>.
+Show your ❤️ and support by giving a ⭐.
 
 ## License
 <p>MIT Licensed.</p>
