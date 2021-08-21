@@ -20,7 +20,7 @@
 <br />
 <br />
 
-# Installation
+## Installation
 ```bash
 # Clone this repository
 $ git clone https://github.com/arifszn/email-scraper.git
