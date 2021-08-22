@@ -118,7 +118,7 @@ class ApiService {
                 }
 
                if (typeof siteString === 'undefined') {
-                    throw Error("Site name is required"); 
+                    throw Error("website is required"); 
                 }
 
                 let siteArray = siteString.split("\n").filter(site => site !== '');
