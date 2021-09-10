@@ -63,7 +63,7 @@ const Home = (props) => {
             }
             
         } else {
-            Helper.showNotification('Nothing to scrap', 'error');
+            Helper.showNotification('Please Gimme the Domain!', 'error');
         }
     }
 
